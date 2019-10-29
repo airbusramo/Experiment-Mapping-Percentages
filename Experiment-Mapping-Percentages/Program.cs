@@ -16,16 +16,18 @@ namespace Experiment_Mapping_Percentages
             double min = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter Maximum Value:");
             double max = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter Position Value:");
+            double axisPosition = Convert.ToDouble(Console.ReadLine());
             bool invert = Invert();
             
             //Inverting the min value to create an inverted percentage.
             if (invert == true)
             {
-                min = max - min;
+                axisPosition = max - axisPosition;
             }
 
             //Math
-            double result = (min / max) * 100;
+            double result = (axisPosition / max) * 100;
 
             Console.WriteLine();
             Console.WriteLine(min);
