@@ -11,14 +11,35 @@ namespace Experiment_Mapping_Percentages
         static void Main()
         {
             //Inputs
-            Console.WriteLine("This is an experiment to see if my mapping idea will work.");
-            Console.WriteLine("Enter Minimum Value:");
-            double min = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Enter Maximum Value:");
-            double max = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Enter Position Value:");
-            double axisPosition = Convert.ToDouble(Console.ReadLine());
-            bool invert = Invert();
+            double min = 0, max = 0, axisPosition = 0;
+            bool invert = false;
+
+            try
+            {
+                Console.WriteLine("This is an experiment to see if my mapping idea will work.");
+                Console.WriteLine("Enter Minimum Value:");
+                min = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter Maximum Value:");
+                max = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter Position Value:");
+                axisPosition = Convert.ToDouble(Console.ReadLine());
+                invert = Invert();
+            }
+            
+            catch (System.FormatException)
+            {
+                Console.WriteLine("Invalid Input");
+                Restart();
+            }
+
+            //Adjusting input range to be positive.
+            if (min < 0)
+            {
+                min = Math.Abs(min);
+                max += min;
+                axisPosition += min;
+                min = 0;
+            }
             
             //Inverting the min value to create an inverted percentage.
             if (invert == true)
