@@ -18,9 +18,14 @@ namespace Experiment_Mapping_Percentages
             double max = Convert.ToDouble(Console.ReadLine());
             bool invert = Invert();
 
+            //Math
+            double result = (min / max) * 100;
+
+            Console.WriteLine();
             Console.WriteLine(min);
             Console.WriteLine(max);
             Console.WriteLine(invert);
+            Console.WriteLine(result + "%");
             Restart();
 
         }
