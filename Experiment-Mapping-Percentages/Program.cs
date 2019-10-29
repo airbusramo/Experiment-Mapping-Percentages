@@ -17,6 +17,12 @@ namespace Experiment_Mapping_Percentages
             Console.WriteLine("Enter Maximum Value:");
             double max = Convert.ToDouble(Console.ReadLine());
             bool invert = Invert();
+            
+            //Inverting the min value to create an inverted percentage.
+            if (invert == true)
+            {
+                min = max - min;
+            }
 
             //Math
             double result = (min / max) * 100;
@@ -30,7 +36,7 @@ namespace Experiment_Mapping_Percentages
 
         }
 
-        //Method for restarting the program.
+        //Method that receives the input for inverting the percentage calculation.
         private static bool Invert()
         {
             Console.WriteLine();
